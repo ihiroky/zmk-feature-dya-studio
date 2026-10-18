@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// Reserved namespace served by the extender itself for feature discovery.
+package zmk.ext;
+
+message GetProtocolVersionRequest {}
+
+message GetProtocolVersionResponse {
+    uint32 protocol_version = 1;
+}
+
+message ListNamespacesRequest {}
+
+message ListNamespacesResponse {
+    repeated string namespaces = 1;
+}
+
+message Request {
+    oneof request_type {
+        GetProtocolVersionRequest get_protocol_version = 1;
+        ListNamespacesRequest list_namespaces = 2;
+    }
+}
+
+message Response {
+    oneof response_type {
+        GetProtocolVersionResponse get_protocol_version = 1;
+        ListNamespacesResponse list_namespaces = 2;
+    }
+}

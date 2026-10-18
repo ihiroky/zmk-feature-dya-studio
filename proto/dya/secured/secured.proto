@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+// Example secured namespace ("dya.secured"): requests are rejected with
+// UNLOCK_REQUIRED while the device is locked.
+package dya.secured;
+
+message PingRequest {
+    string message = 1;
+}
+
+message PingResponse {
+    string message = 1;
+}
+
+message Request {
+    oneof request_type {
+        PingRequest ping = 1;
+    }
+}
+
+message Response {
+    oneof response_type {
+        PingResponse ping = 1;
+    }
+}

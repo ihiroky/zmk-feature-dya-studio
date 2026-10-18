@@ -1,0 +1,6 @@
+name: zmk-feature-dya-studio
+build:
+  cmake: .
+  kconfig: Kconfig
+  depends:
+    - zmk-studio-messages

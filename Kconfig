@@ -1,0 +1,19 @@
+# dya studio protocol extender module
+
+config ZMK_FEATURE_DYA_STUDIO
+    bool "dya studio protocol extender"
+    depends on ZMK_STUDIO
+    default y
+    help
+      Registers a generic ZMK Studio RPC subsystem for the `Extension` arm and
+      dispatches on (namespace, type). Requires a zmk-studio-messages fork that
+      defines the Extension arm and the custom Studio RPC to be enabled.
+
+if ZMK_FEATURE_DYA_STUDIO
+
+config ZMK_FEATURE_DYA_STUDIO_STUDIO_RPC
+    bool "Enable dya studio extension RPC"
+    depends on ZMK_STUDIO_RPC
+    default y
+
+endif

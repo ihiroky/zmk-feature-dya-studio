@@ -1,0 +1,2 @@
+dya.secured.PingRequest.message  max_size:64
+dya.secured.PingResponse.message max_size:64

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// Example read-only feature namespace ("dya.status", unsecured).
+package dya.status;
+
+message GetStatusRequest {}
+
+message GetStatusResponse {
+    uint32 protocol_version = 1;
+    string controller_name = 2;
+}
+
+message Request {
+    oneof request_type {
+        GetStatusRequest get_status = 1;
+    }
+}
+
+message Response {
+    oneof response_type {
+        GetStatusResponse get_status = 1;
+    }
+}
